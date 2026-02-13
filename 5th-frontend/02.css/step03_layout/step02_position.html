@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.parent {
+            width: 500px;
+            height: 1000px;
+            border: 3px solid black;
+            position: relative;
+        }
+        div.child {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: fixed;
+            top: 100px;
+            right: 100px;
+        }
+        div.container {
+            width: 400px;
+            height: 800px;
+            border: 3px solid red;
+            margin: 50px;
+            overflow: auto;
+        }
+        section.section {
+            height: 300px;
+            border: 2px dashed navy;
+        }
+        section.section h1 {
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            border: 3px dashed navy;
+            float: left;
+            margin-left: -10px;
+        }
+        .box:nth-child(2n) {
+            margin-top: 30px;
+        }
+        .box3 {
+            position: relative;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="parent">
+        <div class="child"></div>
+    </div> -->
+
+    <!-- <div class="container">
+        <section class="section">
+            <h1>제목1</h1>
+        </section>
+        <section class="section">
+            <h1>제목2</h1>
+        </section>
+        <section class="section">
+            <h1>제목3</h1>
+        </section>
+        <section class="section">
+            <h1>제목4</h1>
+        </section>
+        <section class="section">
+            <h1>제목5</h1>
+        </section>
+    </div> -->
+
+    <div class="box">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+
+
+
+</body>
+</html>

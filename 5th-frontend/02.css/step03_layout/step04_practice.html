@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navigation : horizontal</title>
+    <style>
+        ul {
+            list-style-type: none;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul.clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: darkolivegreen;
+        }
+
+        li.dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: dimgray;
+            min-width: 160px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            color: red;
+            background-color: gold;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul class="clearfix">
+            <li><a href="#Intro">Intro</a></li>
+            <li><a href="#course">course</a></li>
+            <li class="dropdown">
+                <a href="" class="dropbtn">Study</a>
+                <div class="dropdown-content">
+                    <a href="#">HTML</a>
+                    <a href="#">CSS</a>
+                    <a href="#">Javascript</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</body>
+
+</html>

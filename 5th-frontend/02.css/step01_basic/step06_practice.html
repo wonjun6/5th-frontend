@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu {
+            list-style-type: none;
+        }
+        .menu a {
+            color: black;
+            text-decoration: none;
+        }
+        .menu li.active a {
+            color: blue;
+            font-weight: bold;
+        }
+        .menu li a:hover {
+            background-color: lightgray;
+        }
+        .menu li a::before {
+            content: "> ";
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a href="#home">홈</a></li>
+            <li><a href="#about">소개</a></li>
+            <li class="active"><a href="#services">서비스</a></li>
+            <li><a href="#contact">연락처</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

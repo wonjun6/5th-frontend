@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: gold;
+        }
+
+        .box:hover {
+            animation-name: change-size-color;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes change-size-color {
+            0% {
+                width: 100px;
+            }
+
+            50% {
+                width: 300px;
+                background: green;
+            }
+
+            100% {
+                width: 200px;
+                background: red;
+            }
+        }
+
+        .delay-box {
+            width: 100px;
+            height: 100px;
+            background: gold;
+            margin: 20px;
+        }
+
+        @keyframes up-size {
+            0% {
+                width: 100px;
+            }
+
+            100% {
+                width: 300px;
+            }
+        }
+
+        .box1:hover {
+            animation-name: up-size;
+            animation-duration: 3s;
+            animation-delay: 0s;
+        }
+
+        .box2:hover {
+            animation-name: up-size;
+            animation-duration: 3s;
+            animation-delay: 1s;
+        }
+
+        .box3:hover {
+            animation-name: up-size;
+            animation-duration: 3s;
+            animation-delay: -1s;
+        }
+
+
+        @keyframes fill-mode {
+            0% {
+                transform: translate(200px, 0);
+            }
+
+            100% {
+                transform: translate(400px, 400px);
+            }
+        }
+        .fill-mode {
+            animation-name: fill-mode;
+            animation-duration: 4s;
+            animation-fill-mode: both;
+            /* animation-iteration-count: infinite; */
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- <div class="box"></div> -->
+
+    <!-- <div class="delay-box box1">0s</div>
+    <div class="delay-box box2">1s</div>
+    <div class="delay-box box3">-1s</div> -->
+
+    <div class="delay-box fill-mode"></div>
+</body>
+
+</html>

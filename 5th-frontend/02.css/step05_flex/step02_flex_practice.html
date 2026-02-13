@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step02_flex_prac.html</title>
+    <style>
+        .main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            /* flex-wrap: ; */
+            gap: 1em;
+        }
+        aside {
+            /* flex-basis: 160px; */
+            /* flex-grow: ; */
+            /* flex-shrink: ; */
+            flex: 0 0 160px;
+            background-color: violet;
+        }
+        article {
+            flex-basis: 680px;
+            flex-grow: 1;
+            flex-shrink: 1;
+            background-color: #ffe0e0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+        .item {
+            min-height: 150px;
+            flex-basis: 150px;
+            flex-shrink: 1;
+            flex-grow: 1;
+        }
+        .item1 { background: tomato; }
+        .item2 { background: gold; }
+        .item3 { background: greenyellow; }
+        .item4 { background: dodgerblue; }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <aside>
+            Sidebar
+        </aside>
+        <article>
+            <h1>Title</h1>
+            <div class="container">
+                <div class="item item1">content1</div>
+                <div class="item item2">content2</div>
+                <div class="item item3">content3</div>
+                <div class="item item4">content4</div>
+            </div>
+        </article>
+    
+    </div>
+</body>
+</html>

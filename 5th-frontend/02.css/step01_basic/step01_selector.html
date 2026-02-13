@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step01_selector.html</title>
+    <style>
+        p {
+            text-align: center;
+        }
+
+        p#right {
+            text-align: right;
+        }
+
+        p.size24 {
+            font-size: 24px;
+        }
+
+        ul.fruits>li {
+            color: red;
+        }
+
+        li.berry~li {
+            color: blueviolet;
+        }
+
+        input[disabled] {
+            color: red;
+        }
+
+        input[type="password"] {
+            color: blue;
+        }
+
+        /* class명이 -top으로 끝 -> gold */
+        [class$="-top"] {
+            color: gold;
+        }
+
+        /* class명이 btn-으로 시작 -> tomato */
+        [class^="btn-"] {
+            color: tomato;
+        }
+
+        a:link {
+            background-color: gold;
+        }
+
+        a:visited {
+            background-color: cyan;
+        }
+
+        a:hover {
+            background-color: hotpink;
+        }
+
+        a:active {
+            background-color: blue;
+        }
+
+        input:focus {
+            background-color: gold;
+        }
+
+        /* ul.before li:nth-child(2n + 1) {
+            color: blueviolet;
+        } */
+        /* ul.fruits p:nth-of-type(1) {
+            color: gold;
+        } */
+        /* ul.before li:not(li:nth-child(2)) {
+            color: blueviolet;
+        } */
+
+        /* ul.before li::before {
+            content: "!";
+        } */
+        
+        ul.before li {
+            color: gold;
+        }
+        ul.before li#no4 {
+            color: red;
+        }
+        ul.before li#no4.cl4 {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Selector</h1>
+
+    <div class="combination">
+        <ul class="fruits">
+            <li>사과</li>
+            <li class="berry">딸기</li>
+            <li>수박</li>
+            <li>무화과</li>
+            <p class="grape size24">포도</p>
+            <p class="size24">아보카도</p>
+        </ul>
+        <li>파인애플</li>
+        <p id="right">샤인머스캣</p>
+    </div>
+
+    <hr />
+
+    <!-- 속성 선택자 -->
+    <input type="text" value="front">
+    <input type="password" value="2023">
+    <input type="text" value="disabled text" disabled>
+
+    <button class="btn-top">top</button>
+    <button class="btn-left">left</button>
+    <button>right</button>
+
+    <hr />
+
+    <!-- 가상 클래스 선택자 -->
+    <a href="">링크</a>
+    <input type="text" name="" id="">
+
+    <hr />
+
+    <!-- 가상 요소 선택자 -->
+    <ul class="before">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li id="no4" class="cl4">4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+
+</body>
+
+</html>

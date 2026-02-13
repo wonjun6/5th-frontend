@@ -1,0 +1,729 @@
+/* ==================== 1. 전역 설정 ==================== */
+:root {
+    --neon-cyan: #00fff5;
+    --neon-pink: #ff0080;
+    --neon-purple: #9d4edd;
+    --dark-bg: #0a0e27;
+    --card-bg: rgba(20, 25, 45, 0.6);
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --border-color: rgba(0, 255, 245, 0.2);
+}
+
+* {
+    /* TODO: 모든 요소의 margin, padding을 0으로, box-sizing을 border-box로 설정  */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==================== 2. 배경 애니메이션 ==================== */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(0, 255, 245, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 0, 128, 0.08) 0%, transparent 70%);
+}
+
+.grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 245, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 245, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* ==================== 3. 컨테이너 ==================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==================== 4. 헤더 & 네비게이션 ==================== */
+header {
+    padding: 30px 0;
+    /* TODO: 상단에 고정되도록 position과 top 설정 */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(10, 14, 39, 0.8);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+    /* TODO: slideDown 애니메이션 적용 (0.8초, ease-out) */
+    animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+nav {
+    /* TODO: Flexbox로 좌우 정렬, 세로 가운데 정렬 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    /* TODO: Flexbox로 가로 정렬, 40px 간격 */
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--neon-cyan);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--neon-cyan);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* 모바일 메뉴 버튼 */
+.menu-toggle {
+    /* TODO: Flexbox 세로 정렬, 5px 간격, 포인터 커서 */
+    /* display: none; (일단 주석 - 768px 미만에서만 보이게) */
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--neon-cyan);
+    transition: all 0.3s ease;
+}
+
+/* ==================== 5. 히어로 섹션 ==================== */
+.hero {
+    padding: 120px 0 80px;
+    /* TODO: 텍스트 중앙 정렬 */
+    text-align: center;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 14px;
+    color: var(--neon-cyan);
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero p {
+    font-size: 20px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 35px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 255, 245, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 255, 245, 0.5);
+}
+
+.btn-secondary {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    border-color: var(--neon-cyan);
+    background: rgba(0, 255, 245, 0.1);
+}
+
+/* ==================== 6. 섹션 공통 스타일 ==================== */
+section {
+    padding: 80px 0;
+    /* TODO: fadeInUp 애니메이션 적용 (1초, ease-out, both) */
+    animation: fadeInUp 1s ease-out 0.3s both;
+    
+}
+
+section:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-tag {
+    font-size: 14px;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    color: var(--text-secondary);
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ==================== 7. About 섹션 ==================== */
+.about-content {
+    /* TODO: Flexbox로 배치, wrap 허용, 60px 간격, 세로 가운데 정렬 */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap : 60px;
+    
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.stats {
+    flex: 1;
+    min-width: 300px;
+    /* TODO: Flexbox, wrap, 30px 간격, 중앙 정렬 */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center; 
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 150px;
+    max-width: 200px;
+    /* TODO: 텍스트 중앙 정렬 */
+    text-align: center;
+    padding: 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    /* TODO: 모든 속성 0.3초 애니메이션 */
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 10px 30px rgba(0, 255, 245, 0.2);
+}
+
+.stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* ==================== 8. Skills 섹션 ==================== */
+.skills-container {
+    /* TODO: Flexbox, wrap, 30px 간격, 중앙 정렬 */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center; 
+
+}
+
+.skill-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    /* TODO: 모든 속성 0.4초 애니메이션 */
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 20px 50px rgba(0, 255, 245, 0.3);
+}
+
+.skill-card:hover::before {
+    transform: scaleX(1);
+}
+
+.skill-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.skill-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.skill-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-tag {
+    padding: 6px 14px;
+    background: rgba(0, 255, 245, 0.1);
+    border: 1px solid var(--border-color);
+    /* TODO: border-radius 20px 추가 */
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--neon-cyan);
+}
+
+/* ==================== 9. Projects 섹션 ==================== */
+.projects-container {
+    /* TODO: Flexbox, wrap, 40px 간격, 중앙 정렬 */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.project-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    /* TODO: overflow hidden 추가 */
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    /* TODO: 모든 속성 0.4초 애니메이션 */
+    transition: all 0.4s ease;
+    /* TODO: Flexbox 세로 정렬 */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 255, 245, 0.3);
+}
+
+.project-image {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, rgba(0, 255, 245, 0.2), rgba(157, 78, 221, 0.2));
+    /* TODO: Flexbox로 가운데 정렬 (가로, 세로) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-content {
+    padding: 30px;
+    /* TODO: Flexbox 세로 정렬 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    flex: 1;
+}
+
+.project-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.7;
+    flex: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.project-link {
+    padding: 10px 20px;
+    background: rgba(0, 255, 245, 0.1);
+    border: 1px solid var(--border-color);
+    /* TODO: border-radius 8px 추가 */
+    border-radius: 8px;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    background: rgba(0, 255, 245, 0.2);
+    border-color: var(--neon-cyan);
+}
+
+/* ==================== 10. Contact 섹션 ==================== */
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-info {
+    /* TODO: Flexbox, wrap, 20px 간격, 중앙 정렬 */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    
+    margin-top: 40px;
+}
+
+.contact-item {
+    flex: 1;
+    min-width: 180px;
+    max-width: 200px;
+    padding: 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    /* TODO: 모든 속성 0.3초 애니메이션 */
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    border-color: var(--neon-cyan);
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.contact-item h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+}
+
+.contact-item a {
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ==================== 11. Footer ==================== */
+footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 80px;
+}
+
+footer p {
+    color: var(--text-secondary);
+}
+
+/* ==================== 12. 반응형 디자인 ==================== */
+@media (max-width: 968px) {
+    .hero h1 {
+        font-size: 56px;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .stats {
+        justify-content: space-around;
+    }
+
+    .stat-card {
+        flex: 0 1 calc(50% - 15px);
+    }
+
+    .section-title {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(10, 14, 39, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: left 0.3s ease;
+        border-right: 1px solid var(--border-color);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    .stat-card {
+        max-width: 100%;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .skills-container {
+        flex-direction: column;
+    }
+
+    .skill-card {
+        max-width: 100%;
+    }
+
+    .projects-container {
+        flex-direction: column;
+    }
+
+    .project-card {
+        max-width: 100%;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+
+    .contact-item {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .btn {
+        padding: 12px 28px;
+        font-size: 14px;
+    }
+}
+
+/* ==================== 13. 스크롤 애니메이션 ==================== */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <style>
+        body * {
+            padding: 5px;
+            margin: 5px;
+            border: 3px dashed navy;
+        }
+
+        p a {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="parent">
+        <button id="btn1">버튼 1</button>
+        <button id="btn2">버튼 2</button>
+    </div>
+    <script>
+        // 인라인
+        // <button id="btn1" ondblclick="showAlert();">버튼 1</button>
+        function showAlert() {
+            alert('버튼1');
+        }
+
+        // 프로퍼티
+        const btn1 = document.getElementById('btn1');
+        // btn1.onclick = showAlert;
+        // btn1.onclick = function() {
+        //     prompt('입력');
+        // };
+
+        // 이벤트 핸들러
+        // btn1.addEventListener('click', showAlert);
+        btn1.addEventListener('click', (e) => {
+            console.log('이벤트 - 버튼1');
+            e.currentTarget.style.color = 'red';
+            console.log(e.currentTarget);
+        });
+
+    </script>
+
+    <hr>
+
+    <div class="parent2">
+        <input type="text" class="input-value">
+        <button id="btn">버튼</button>
+    </div>
+
+    <script>
+        const parent = document.querySelector('div.parent2');
+        parent.addEventListener('keyup', (e) => {
+            console.log(e.type);
+            console.log(e.code);
+        });
+    </script> -->
+
+    <!-- <div>
+        div
+        <p>
+            paragraph
+            <a>
+                link
+            </a>
+        </p>
+    </div>
+
+    <script>
+        const div = document.querySelector('div');
+        const p = document.querySelector('p');
+        const a = document.querySelector('a');
+
+        // 캡쳐링
+        // div.addEventListener('click', () => alert('div 캡쳐'), true);
+        // p.addEventListener('click', () => alert('p 캡쳐'), true);
+        // a.addEventListener('click', () => alert('a 캡쳐'), true);
+        
+        // 버블링
+        div.addEventListener('click', () => alert('div 버블'));
+        p.addEventListener('click', () => alert('p 버블'));
+        a.addEventListener('click', () => alert('a 버블'));
+
+        p.addEventListener('click', (e) => {
+            e.stopPropagation();
+        })
+        a.addEventListener('click', (e) => {
+            e.stopPropagation();
+        })
+
+    </script> -->
+
+    <a href="https://naver.com" target="_blank">네이버 이동</a>
+
+    <hr>
+    <h1>네이버 검색 서버</h1>
+    <form action="https://search.naver.com/search.naver" method="get">
+        <input type="text" name="query" id="">
+        <input type="submit" value="검색">
+    </form>
+
+    <script>
+        const aElement = document.querySelector('a');
+        aElement.addEventListener('click', (e) => {
+            e.preventDefault();
+        });
+
+        const formElement = document.querySelector('form');
+        formElement.addEventListener('click', (e) => {
+            e.preventDefault();
+        });
+    </script>
+</body>
+
+</html>

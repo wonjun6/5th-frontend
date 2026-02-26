@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // date
+        const today = new Date();
+        // console.log(today.getFullYear());
+
+        // now : 밀리초(1970.01.01 ~ )
+        // console.log(Date.now());
+
+        const todayDate = new Date(2026, 2, 23);
+        // console.log(Date.parse('2026-02-23'));
+        // console.log(new Date(Date.parse('2026-02-23')));
+
+        // 포맷팅
+        console.log(today.toLocaleDateString('ko-KR'));
+        console.log(today.toLocaleTimeString('ko-KR'));
+
+        console.log(today.toLocaleString('ko-KR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            weekend: 'long',
+            hour: '2-digit',
+            minute: '2-digit'
+        }));
+
+        /**
+         * 두 날짜 사이의 시간 차이를 계산하는 함수
+         * @param {Date|string|number} date1 - 시작 날짜
+         * @param {Date|string|number} date2 - 종료 날짜
+         * @returns {Object} - days, hours, minutes, seconds 포함 객체
+         */
+        function getTimeDiff(date1, date2) {
+            const d1 = new Date(date1);
+            const d2 = new Date(date2);
+
+            // 두 날짜의 밀리초 차이 계산 (절댓값 처리)
+            const diffMs = Math.abs(d2 - d1);
+
+            // 각 시간 단위별 변환 공식 적용
+            const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+            const diffHours = Math.floor((diffMs / (1000 * 60 * 60)) % 24);
+            const diffMinutes = Math.floor((diffMs / (1000 * 60)) % 60);
+            const diffSeconds = Math.floor((diffMs / 1000) % 60);
+
+            return {
+                days: diffDays,
+                hours: diffHours,
+                minutes: diffMinutes,
+                seconds: diffSeconds
+            };
+        }
+
+        // 사용 예시
+        const start = "2024-01-01 12:00:00";
+        const end = new Date(); // 현재 시간
+
+        const result = getTimeDiff(start, end);
+        console.log(result);
+        /* 결과 예시:
+        {
+            days: 418,
+            hours: 3,
+            minutes: 45,
+            seconds: 12
+        }
+        */
+
+    </script>
+</body>
+
+</html>

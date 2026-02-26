@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let ce = { name: 'ce' };
+        let jsonCE = "{\"name\": \"ce\"}";
+
+        // console.log(JSON.stringify(ce));
+        // console.log(JSON.parse(jsonCE));
+
+        let names = ['ce', 'it', 'cloud'];
+        let [, it, cloud] = names;
+        // console.log(it);
+
+        let info = {
+            name: 'js',
+            age: 40,
+            hobbies: { h1: 'study' }
+        };
+
+        let { name, age, hobbies } = info;
+        // console.log(hobbies);
+
+        const bret = {
+            "id": 1,
+            "name": "Leanne Graham",
+            "username": "Bret",
+            "email": "Sincere@april.biz",
+            "address": {
+                "street": "Kulas Light",
+                "suite": "Apt. 556",
+                "city": "Gwenborough",
+                "zipcode": "92998-3874",
+                "geo": {
+                    "lat": "-37.3159",
+                    "lng": "81.1496"
+                }
+            },
+            "phone": "1-770-736-8031 x56442",
+            "website": "hildegard.org",
+            "company": {
+                "name": "Romaguera-Crona",
+                "catchPhrase": "Multi-layered client-server neural-net",
+                "bs": "harness real-time e-markets"
+            }
+        }
+
+        let { lat, lng } = bret.address.geo;
+        // console.log(lat);
+        // console.log(lng);
+
+        // let { username, email } = bret;
+        // console.log(email);
+
+
+        // 매개변수 기본값
+        function add(x, y = 0) {
+            return x + y;
+        }
+        // console.log(add(1));
+
+        // rest
+        function printData(...rest) {
+            console.log(rest);
+        }
+        // printData(10, 20, 30, 40, 50, 60);
+
+        // spread
+        let avengers = ['토르', '로키', '블랙위도우'];
+        let newAvengers = [...avengers, '스파이더맨'];
+        // console.log(newAvengers);
+        
+        const arr1 = [1, 2, 3];
+        const arr2 = [4, 5, 6];
+        const merged = [...arr1, ...arr2];
+        // console.log(merged);
+
+        const defaults = { theme: 'light', lang: 'ko' };
+        const userSettings = { theme: 'dark', lastSettingTime: new Date() };
+        const settings = { ...defaults, ...userSettings };
+        // console.log(settings);
+
+        // 시나리오 
+        // A 서버로 데이터 fetch, 데이터 추가 B 서버로 전달 
+        function updateUserData(userId) {
+            
+            // A 서버로 데이터 fetch
+            const response = `{"id": 1, "name": "json", "email": "json@example.com"}`;
+
+            const user = JSON.parse(response);
+
+            // 데이터 추가 B 서버로 전달
+            const {name, email} = user;
+            const updateUser = {...user, lastLogin: new Date()};
+            return JSON.stringify(updateUser);
+        }
+
+        // console.log(updateUserData(1));
+
+
+        // 함수 매개변수 비구조화
+        function createNotification({title, msg, type = 'info'}) {
+            return `[${type}] ${title} : ${msg}`;
+        }
+
+        console.log(
+            createNotification({
+                title: '알림',
+                msg: '새로운 메세지 전달'
+            })
+        );
+
+    </script>
+</body>
+
+</html>

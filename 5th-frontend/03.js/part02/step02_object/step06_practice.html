@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Q1
+        // var nums = [100, 200, 300, 400, 500];
+        // nums.pop(400);
+        // nums.pop(500);
+        // console.log(nums);
+
+        // // Q2
+        // var arr = [200, 100, 300];
+        // arr.splice(2,0, 10000);
+        // console.log(arr);
+
+        // // Q3
+        // var year = '2026';
+        // var month = '02';
+        // var day = '12';
+        // var hour = '23';
+        // var minute = '59';
+        // var second = '11';
+
+        // var result = year.concat('/',month,'/',day,' ',hour,':',minute,':',second);
+
+        // console.log(result);
+
+        // Q4
+        // var space = ['수성', '금성','지구','화성','목성','토성','천왕성','혜왕성']
+        
+        // let n = prompt("행성 순서 번호 입력");
+        // console.log(space[n-1]);
+
+        // // Q5
+        // var dlqfur = "거꾸로"
+        // var result = dlqfur.split('').reverse().join('');
+        // console.log(result);
+        
+        // Q6
+        // var planet = {
+        //     '수성': 'Mercury',
+        //     '금성': 'Venus',
+        //     '지구': 'Earth',
+        //     '화성': 'Mars',
+        //     '목성': 'Jupiter',
+        //     '토성': 'Saturn',
+        //     '천왕성': 'Uranus',
+        //     '혜왕성': 'Neptune'
+        // };
+        // var input = '화성';
+        // console.log(planet[input]);
+
+        // Q7
+        // var input = 'Javascript';
+        // for(var i = 0; i < input.length -1; i++){
+        //     console.log(input[i] + input[i+1]);
+        // }
+
+        // Q8
+        // let n = prompt("알파벳 입력");
+        // if (n === n.toUpperCase()){
+        //     console.log("YES");
+        // }else{
+        //     console.log("NO");
+        // };
+        
+        // Q9
+        // var students = ['유느님', '조셉', '침착맨', '주펄', '풍전무', '기안84', '원지', '빠니보틀', '곽튜브'];
+        // students.sort();
+
+        // for(var i = 0; i < students.length; i++){
+        //     console.log(`번호 ${i + 1}, 이름 : ${students[i]}` );
+        // }
+        
+        // Q10
+        var inPut = '복잡한 세상 편하게 살자'
+        var word = inPut.split(' ');
+        var result = ' ';
+
+        for(var i = 0; i < word.length; i++){
+            result = result + word[i][0];
+        }
+        console.log(result);
+
+
+    </script>
+</body>
+</html>

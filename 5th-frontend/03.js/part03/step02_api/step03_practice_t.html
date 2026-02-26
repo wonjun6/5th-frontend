@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step03_apply.html</title>
+</head>
+<body>
+    <!-- dog-api 실습 -->
+    <!-- https://dog.ceo/ -->
+    <!-- fetch 버튼 클릭시 div영역에 이미지 추가 -->
+    <button id="fetch-dog-api">fetch</button>
+    <hr />
+    <div id="show-dog-img"></div>
+
+    <script>
+    const BASE_URL = 'https://dog.ceo/api/breeds/image/random';
+
+// 1. HTML 요소 가져오기
+    const fetchBtn = document.getElementById('fetch-dog-api');
+    const imgContainer = document.getElementById('show-dog-img');
+
+// 2. 버튼에 클릭 이벤트 리스너 추가
+    fetchBtn.addEventListener('click', (e) => {
+        
+        fetch(BASE_URL)
+            .then(res => res.json())
+            .then(data => {
+                const imgUrl = data.message;
+                const dogImg = document.createElement('img');
+                dogImg.style.width = '200px';
+                dogImg.style.height = '400px';
+                dogImg.src = imgUrl;
+
+                imgContainer.appendChild(dogImg);
+            })
+            .catch(err => {})
+
+    });
+    </script>
+</body>
+</html>

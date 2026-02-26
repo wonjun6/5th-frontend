@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // call by value : 기본타입 
+        // let height = 100;
+        // let number = height;
+
+        // height = 200;
+
+        // console.log(height);
+        // console.log(number);
+
+        let person = {name : 'it'}
+        //얕은 복사
+        let copyPerson = person;
+        // 깊은 복사
+        let deepCopyPerson = JSON.parse(JSON.stringify(person));
+        console.log(deepCopyPerson);
+
+        // console.log(person);
+        // console.log(copyPerson);
+
+        person.name = 'dev';
+
+        // console.log(person);
+        // console.log(copyPerson);
+        console.log(deepCopyPerson);
+    </script>
+</body>
+</html>

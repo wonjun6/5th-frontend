@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 명시적
+        // console.log(String(123));
+        // console.log(String(true));
+        // console.log(String(null));
+        // console.log(String(undefined));
+        // console.log(String([1, 2, 3]));
+
+        // console.log(Number('123'));
+        // console.log(Number('abc'));
+        // console.log(Number(true));
+        // console.log(Number(false));
+        // console.log(Number(null));
+        // console.log(Number(undefined));
+        // console.log(Number(''));
+
+        // console.log(Boolean(0));
+        // console.log(Boolean(''));
+        // console.log(Boolean(null));
+        // console.log(Boolean(undefined));
+        // console.log(Boolean(NaN));
+        // console.log(Boolean([1, 2, 3]));
+        // console.log(Boolean({name: 'cloud'}));
+        // console.log(Boolean(' '));
+
+        // 암시적
+        // string + number, boolean, .. => string
+        // console.log('100' + 50);
+        // console.log('100' + undefined);
+
+        // console.log('---');
+        // string, number, boolean, 나머지연산 => number
+        // console.log('100' - 50);
+        // console.log('100' * 50);
+        // console.log('100' / 50);
+        // console.log(100 + true);
+        // console.log(100 * '포인트');
+
+        // Falsy (거짓같은 값)
+        if(false) console.log('falsy');
+        if(0) console.log('falsy');
+        if('') console.log('falsy');
+        if(null) console.log('falsy');
+        if(undefined) console.log('falsy');
+        if(NaN) console.log('falsy');
+
+        // Truthy (참 같은 값)
+
+        // user : null, undefined
+        function printName(user) {
+            if(user) {
+                console.log(user.name);
+            } else {
+                console.log('유저 정보 x');
+            }
+        }
+
+        // 단축평가 : &&, ||
+        // user 객체 존재 -> saveUserData(user);
+        // if(user != null) {
+        //     saveUserData(user);
+        // }
+        // user && saveUserData(user);
+
+        // input : '' 빈문자열이라면 -> '익명' 값을 할당
+        // const name = input || '익명';
+
+        // 기본값 설정
+        function great(name) {
+            const userName = name || 'Guest';
+            console.log(`Hello, ${userName}`);
+        }
+
+        great('John');
+        great();
+
+        // 조건부 실행
+        // A && B : A가 truthy이면 B 반환, A가 falsy 하다면 A를 반환.
+        // A || B : A가 truthy이면 A 반환, A가 falsy 하다면 B를 반환.
+        const isLoggedIn = false;
+        isLoggedIn && console.log('사용자 로그인!');
+
+        // 옵셔널 체이닝 (?.)
+        const user = {
+            profile: {
+                name: 'John'
+            }
+        };
+
+        console.log(user?.profile?.name);
+        // settings.theme 
+        console.log(user.settings?.theme || 'light');
+
+
+    </script>
+</body>
+</html>

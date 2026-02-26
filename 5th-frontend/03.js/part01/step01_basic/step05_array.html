@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+</head>
+<body>
+    <script>
+        // 메서드
+        const scores = [100, 3, 75, 52, 88];
+        
+        // toString() : 문자열 출력
+        // at()       : 인덱스로 출력
+        // join()     : 문자열로 연결 후 출력
+        // pop()      : 마지막 요소 삭제
+        // push()     : 마지막에 요소 추가
+        // shift()    : 첫번째 요소 제거
+        // unshift()  : 맨 앞에 추가
+        
+        // concat()   : 두 배열 하나의 배열로 합침
+        let numbers = [1, 2, 3, 4, 5];
+        // copyWithin() : 지정 인텍스에서 개수만큼 새로운 배열 복사
+        // flat()     : 배열을 일렬로 변경
+        let dim = [[1, 2], [3, 4]];
+        
+        // splice()   : 지정 인덱스로 부터 삭제, 추가 기능
+        // slice()    : 지정 인덱스로부터 출력 기능
+        let month = ['jan', 'march'];
+        // indexOf()  : 지정 요소 인덱스값
+        // includes() : 지정 요소 존재 여부
+        
+        let points = [40, 500, 25, 11, 82];
+        // sort(함수) : 함수 -> 정렬   
+        // forEach    : 함수 -> 내부 반복
+        // points.forEach(point =>console.log(point));
+        
+        // map(함수)   : 함수 -> 내부 반복 이후 요소 반환
+        // let multiply = points.map(point => (point *0.1));
+        // console.log(multiply);
+
+        // find(함수)  : 함수 -> 내부 반복 이후 요소 반환
+        // let foundPoint = points.find(point => (point == 25));
+        // console.log(foundPoint);
+        // filter(함수) : 함수 -> 내부 반복 이후 조건에 맞는 요소 반환
+        // reduce(함수) : 함수 -> 내부 반복 이후 누적 결과 반환
+        // let sum = points.reduce((acc, cur) =>acc + cur, 0 );
+        let avg = points.reduce((acc, cur, idx, arr) => {
+            acc += cur;
+            return idx === arr,length -1 ? acc/arr.length : acc;
+        }, 0 );
+
+
+        console.log(avg);
+        // console.log(sum);
+    </script>
+</body>
+</html>

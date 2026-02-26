@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj1 = {name: 'cloud', age: 29};
+        // console.log(obj1);
+
+
+        let obj2 = new Object();
+        // console.log(obj2);
+        // obj2.name = 'js';
+        // console.log(obj2);
+
+        // brand, color, price
+        function Car(brand, color, price){
+            this.brand = brand;
+            this.color = color;
+            this.price = price;
+
+            this.turnOn = function(){
+                console.log('시동 걸림');
+            }
+        }
+
+        let bmw = new Car("BMW", "red", 5000);
+        // console.log(bmw);
+        // bmw.turnOn();
+
+        function Student(name, age, grade){
+            this.name =name;
+            this.age = age;
+            this.grade = grade;
+
+            // this.printInfo = function(){
+            //     console.log(name, age, grade);
+            // }
+        }
+        let student = new Student('wonjun',26, 3);
+        // Myinfo.printInfo();
+        // for(const key in student){
+        //     console.log(student[key]);
+        // }
+
+        const user = {name: "CE", age: 29, role: 'dev'};
+        // console.log(Object.keys(user));
+        // console.log(Object.values(user));
+        // console.log(Object.entries(user));
+
+        // const defaults = {theme : 'light', lang: 'ko'};
+        // const userSetting = {theme: 'dark'};
+        // const settings = Object.assign({}, defaults,userSetting);
+        // console.log(settings);
+
+        class Product { 
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
+            }
+            get displayPrice(){
+                return this.price;
+            }
+
+            set discountPrice(rate){
+                this.price = this.price * (1 - rate);
+            }
+        }
+        const keyboard = new Product('키보드', 50000);
+        console.log
+    </script>
+</body>
+</html>
